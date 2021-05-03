@@ -1,0 +1,28 @@
+<div class="container main-div">
+    <br>
+    <div class="dashboard-div">
+        <div class="sidebar-div">
+            <h2>Lists</h2>
+            <div class="list-names" *ngFor="let listItem of myListArray | async; let i = index">
+                <button class="list-names-btn" (click)="getList(i)">
+                    {{listItem.listTitle}}
+                </button>
+            </div>
+            <div class="new-list-btn-div">
+                <button class="btn new-list-btn btn-block" (click)="addNewList()">+ New List</button>
+            </div>
+        </div>
+        <div class="content-div">
+            <h2>Tasks</h2>
+            <div *ngFor="let listItem of myListArray | async">
+                <div *ngFor="let item of listItem.tasks" class="task-data-div">
+                    {{item}}
+                </div>
+                <br>
+            </div>
+            <div class="add-task-btn-div float-right">
+                <button class="add-task-btn btn btn-lg" (click)="addTask()">+</button>
+            </div>
+        </div>
+    </div>
+</div>
